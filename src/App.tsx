@@ -6,25 +6,27 @@ import {
 } from 'react-router-dom';
 import AppNavbar from './components/app/AppNavbar';
 import Home from './views/Home';
-import Ratio from './views/Ratio';
-import Chart from './views/Chart';
+import Ratio from './features/ratio/Ratio';
+import Chart from './features/chart/Chart';
 import './App.css';
 
 function App() {
   return (
     <Router>
       <AppNavbar/>
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route exact path="/ratio">
-          <Ratio />
-        </Route>
-        <Route exact path="/chart">
-          <Chart />
-        </Route>
-      </Switch>
+      <div className="App">
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route exact path="/ratio">
+            <Ratio />
+          </Route>
+          <Route exact path="/chart">
+            <Chart />
+          </Route>
+        </Switch>
+      </div>
     </Router>
   );
 }

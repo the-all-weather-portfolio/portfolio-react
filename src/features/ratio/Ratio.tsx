@@ -1,6 +1,6 @@
 import React from 'react';
-import RatioTable from '../components/ratio/RatioTable';
-import PieChart from '../components/ratio/PieChart';
+import RatioTable from '../../components/ratio/RatioTable';
+import PieChart from '../../components/ratio/PieChart';
 
 function Ratio() {
   return (
