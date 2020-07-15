@@ -20,13 +20,13 @@ export const counterSlice = createSlice({
 
 export const { increment, decrement, incrementByAmount } = counterSlice.actions;
 
-export const incrementAsync = (amount: any) => dispatch => {
+export const incrementAsync = (amount) => (dispatch) => {
   setTimeout(() => {
     dispatch(incrementByAmount(amount))
   }, 1000);
 }
 
-export const fetchUserById = userId => {
+export const fetchUserById = (userId) => {
   return async (dispatch, getState) => {
     try {
       const user = await userAPI.fetchById(userId);
@@ -37,12 +37,6 @@ export const fetchUserById = userId => {
   }
 }
 
-interface RootState {
-  counter: {
-    value: number;
-  }
-}
-
-export const selectCount = (state: RootState) => state.counter.value;
+export const selectCount = (state) => state.counter.value;
 
 export default counterSlice.reducer;
