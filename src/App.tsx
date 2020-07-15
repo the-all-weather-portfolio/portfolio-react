@@ -5,6 +5,9 @@ import {
   Route,
 } from 'react-router-dom';
 import AppNavbar from './components/app/AppNavbar';
+import Home from './views/Home';
+import Ratio from './views/Ratio';
+import Chart from './views/Chart';
 import './App.css';
 
 function App() {
@@ -14,6 +17,12 @@ function App() {
       <Switch>
         <Route exact path="/">
           <Home />
+        </Route>
+        <Route exact path="/ratio">
+          <Ratio />
+        </Route>
+        <Route exact path="/chart">
+          <Chart />
         </Route>
       </Switch>
     </Router>
