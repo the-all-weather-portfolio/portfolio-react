@@ -10,11 +10,13 @@ export const ratioSlice = createSlice({
   },
   reducers: {
     requestList: (state) => {
+      console.log('requestList');
       state.list = [];
       state.error = {};
       state.status = 'REQUEST';
     },
     receiveList: (state, action) => {
+      console.log('receiveList');
       console.log(action);
       state.list = action.payload;
       state.status = 'RECEIVE';

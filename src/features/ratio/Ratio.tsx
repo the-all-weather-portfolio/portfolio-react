@@ -14,13 +14,6 @@ function Ratio() {
   const status = useSelector((state: any) => state.ratio.status);
   const dispatch = useDispatch();
 
-  const renderedCard = list.map((item: any) => (
-    <div>
-      <h5>{item.name}</h5>
-      <p>{item.value}</p>
-    </div>
-  ))
-
   return (
     <div className="container">
       <h3>Ratio</h3>
@@ -29,12 +22,13 @@ function Ratio() {
           <RatioTable/>
         </div>
         <div className="col">
-          <PieChart/>
+          <PieChart
+            list={list}
+          />
         </div>
       </div>
       <div>
         <h6>{status}</h6>
-        <p>{renderedCard}</p>
         <button
           className="btn btn-primary"
           onClick={() => dispatch(requestAsync())}
