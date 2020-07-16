@@ -8,6 +8,7 @@ import AppNavbar from './components/app/AppNavbar';
 import Home from './views/Home';
 import Ratio from './features/ratio/Ratio';
 import Chart from './features/chart/Chart';
+import Counter from './features/counter/Counter';
 import './App.css';
 
 function App() {
@@ -24,6 +25,9 @@ function App() {
           </Route>
           <Route exact path="/chart">
             <Chart />
+          </Route>
+          <Route exact path="/counter">
+            <Counter />
           </Route>
         </Switch>
       </div>
