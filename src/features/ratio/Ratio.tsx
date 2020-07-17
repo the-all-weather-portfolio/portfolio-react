@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import RatioTable from '../../components/ratio/RatioTable';
 import PieChart from '../../components/ratio/PieChart';
@@ -13,6 +13,10 @@ function Ratio() {
   const list = useSelector((state: any) => state.ratio.list);
   const status = useSelector((state: any) => state.ratio.status);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(requestAsync());
+  }, []);
 
   return (
     <div className="container">

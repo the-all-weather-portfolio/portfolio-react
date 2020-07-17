@@ -1,13 +1,26 @@
 import { createSlice } from '@reduxjs/toolkit';
 import data from './data';
 
+type Item = {
+  value: number;
+  name: string;
+  meta: string;
+};
+type Status = 'INITIAL' | 'REQUEST' | 'RECEIVE' | 'FAILURE';
+type State = {
+  list: Item[];
+  error: any;
+  status: Status;
+};
+const initialState: State = {
+  list: [],
+  error: {},
+  status: 'INITIAL',
+}
+
 export const ratioSlice = createSlice({
   name: 'ratio',
-  initialState: {
-    list: [],
-    error: {},
-    status: 'INITIAL',
-  },
+  initialState: initialState,
   reducers: {
     requestList: (state) => {
       console.log('requestList');
@@ -17,13 +30,12 @@ export const ratioSlice = createSlice({
     },
     receiveList: (state, action) => {
       console.log('receiveList');
-      console.log(action);
       state.list = action.payload;
       state.status = 'RECEIVE';
     },
     failureList: (state, action) => {
       state.error = action.payload;
-      state.status = 'RECEIVE';
+      state.status = 'FAILURE';
     },
   },
 });
