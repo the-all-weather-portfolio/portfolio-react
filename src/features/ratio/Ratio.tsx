@@ -16,6 +16,7 @@ function Ratio() {
 
   useEffect(() => {
     dispatch(requestAsync());
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
