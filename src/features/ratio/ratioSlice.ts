@@ -12,7 +12,7 @@ type State = {
   error: any;
   status: Status;
 };
-const initialState: State = {
+const ratioState: State = {
   list: [],
   error: {},
   status: 'INITIAL',
@@ -20,7 +20,7 @@ const initialState: State = {
 
 export const ratioSlice = createSlice({
   name: 'ratio',
-  initialState: initialState,
+  initialState: ratioState,
   reducers: {
     requestList: (state) => {
       console.log('requestList');
