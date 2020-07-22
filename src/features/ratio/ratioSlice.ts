@@ -47,7 +47,7 @@ export const ratioSlice = createSlice({
       state.list = [];
       state.status = 'REQUEST';
     },
-    receiveList: (state, action: PayloadAction<any[]>) => {
+    receiveList: (state, action: PayloadAction<ListItemRow[]>) => {
       state.list = parseData(action.payload);
       state.status = 'RECEIVE';
     },
