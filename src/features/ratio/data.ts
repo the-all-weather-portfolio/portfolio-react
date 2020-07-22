@@ -1,33 +1,33 @@
 const data = [
   {
-    value: 220,
-    name: 'Series 1',
-    meta: 'Meta One'
+    price: 14_115,
+    quantity: 14,
+    stock: '미국S&P500선물(H)',
   },
   {
-    value: 210,
-    name: 'Series 2',
-    meta: 'Meta Two'
+    price: 8_840,
+    quantity: 21,
+    stock: '선진국MSCI(합성 H)',
   },
   {
-    value: 105,
-    name: 'Series 3',
-    meta: 'Meta Three'
+    price: 12_350,
+    quantity: 8,
+    stock: '골드선물(H)',
   },
   {
-    value: 201,
-    name: 'Series 4',
-    meta: 'Meta Three'
+    price: 12_750,
+    quantity: 15,
+    stock: '미국채10년선물',
   },
   {
-    value: 230,
-    name: 'Series 5',
-    meta: 'Meta Three'
+    price: 72_665,
+    quantity: 3,
+    stock: '국채선물10년',
   },
   {
-    value: 99,
-    name: 'Series 6',
-    meta: 'Meta Three'
+    price: 102_300,
+    quantity: 1,
+    stock: '단기채권',
   }
 ];
 

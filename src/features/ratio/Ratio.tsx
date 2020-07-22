@@ -27,7 +27,9 @@ function Ratio() {
       <h3>Ratio</h3>
       <div className="row row-cols-1 row-cols-md-2">
         <div className="col">
-          <RatioTable/>
+          <RatioTable
+            list={list}
+          />
         </div>
         <div className="col">
           <PieChart

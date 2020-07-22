@@ -1,35 +1,32 @@
 import React from 'react';
 
-function RatioTable() {
+interface Props {
+  list: any[];
+}
+
+function RatioTable(props: Props) {
+  const row = props.list.map(item => (
+    <tr>
+      <td>{item.stock}</td>
+      <td className="text-right">{item.price.toLocaleString('kr-KO')}</td>
+      <td className="text-right">{item.quantity.toLocaleString('kr-KO')}</td>
+      <td className="text-right">{item.value.toLocaleString('kr-KO')}</td>
+      <td className="text-right">{item.ratio.toFixed(2)}%</td>
+    </tr>
+  ));
   return (
     <table className="table">
       <thead>
         <tr>
-          <th scope="col">#</th>
-          <th scope="col">First</th>
-          <th scope="col">Last</th>
-          <th scope="col">Handle</th>
+          <th>종목</th>
+          <th className="text-right">가격</th>
+          <th className="text-right">수량</th>
+          <th className="text-right">합계</th>
+          <th className="text-right">비율</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>Larry</td>
-          <td>the Bird</td>
-          <td>@twitter</td>
-        </tr>
+        {row}
       </tbody>
     </table>
   );

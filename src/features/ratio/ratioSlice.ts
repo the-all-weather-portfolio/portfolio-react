@@ -2,10 +2,15 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { AppThunk, RootState } from '../../app/store';
 import data from './data';
 
-interface ListItem {
+interface ListItemRow {
+  stock: string;
+  quantity: number;
+  price: number;
+}
+
+interface ListItem extends ListItemRow {
   value: number;
-  name: string;
-  meta: string;
+  ratio: number;
 }
 
 interface RequestError {
@@ -25,6 +30,15 @@ const initialState: RatioState = {
   status: 'INITIAL',
 };
 
+function parseData(data: ListItemRow[]): ListItem[] {
+  const sum = data.reduce((acc: number, item) => acc + (item.quantity * item.price), 0);
+  return data.map(item => ({
+    ...item,
+    value: item.quantity * item.price,
+    ratio: ((item.quantity * item.price) / sum * 100),
+  }));
+}
+
 export const ratioSlice = createSlice({
   name: 'ratio',
   initialState,
@@ -33,8 +47,8 @@ export const ratioSlice = createSlice({
       state.list = [];
       state.status = 'REQUEST';
     },
-    receiveList: (state, action: PayloadAction<ListItem[]>) => {
-      state.list = action.payload;
+    receiveList: (state, action: PayloadAction<any[]>) => {
+      state.list = parseData(action.payload);
       state.status = 'RECEIVE';
     },
     failureList: (state, action: PayloadAction<RequestError>) => {

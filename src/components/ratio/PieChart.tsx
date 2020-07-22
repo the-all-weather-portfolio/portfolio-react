@@ -8,7 +8,10 @@ interface Props {
 function PieChart(props: Props) {
   useEffect(() => {
     new Chartist.Pie('.ct-chart', {
+      labels: props.list.map(item => item.stock),
       series: props.list,
+    }, {
+      labelInterpolationFnc: (value: any[]) => value
     });
   }, [props.list]);
 
