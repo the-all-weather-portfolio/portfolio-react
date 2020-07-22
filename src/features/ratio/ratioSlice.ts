@@ -35,7 +35,7 @@ function parseData(data: ListItemRow[]): ListItem[] {
   return data.map(item => ({
     ...item,
     value: item.quantity * item.price,
-    ratio: ((item.quantity * item.price) / sum * 100),
+    ratio: (item.quantity * item.price) / sum * 100,
   }));
 }
 
