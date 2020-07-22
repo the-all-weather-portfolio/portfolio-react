@@ -1,17 +1,20 @@
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import {
+  requestAsync,
+  selectRatio,
+  // selectList,
+  // selectError,
+  // selectStatus,
+} from './ratioSlice';
 import RatioTable from '../../components/ratio/RatioTable';
 import PieChart from '../../components/ratio/PieChart';
 
-import {
-  // selectList,
-  // selectStatus,
-  requestAsync,
-} from './ratioSlice';
-
 function Ratio() {
-  const list = useSelector((state: any) => state.ratio.list);
-  const status = useSelector((state: any) => state.ratio.status);
+  const { list, error, status } = useSelector(selectRatio);
+  // const list = useSelector(selectList);
+  // const error = useSelector(selectError);
+  // const status = useSelector(selectStatus);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -33,7 +36,7 @@ function Ratio() {
         </div>
       </div>
       <div>
-        <h6>{status}</h6>
+        <h6>{status} {error?.message}</h6>
         <button
           className="btn btn-primary"
           onClick={() => dispatch(requestAsync())}
