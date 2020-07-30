@@ -9,6 +9,7 @@ import Home from './views/Home';
 import Ratio from './features/ratio/Ratio';
 import Chart from './features/chart/Chart';
 import Counter from './features/counter/Counter';
+import EffectForm from './features/effectForm/EffectForm';
 import './App.css';
 
 function App() {
@@ -28,6 +29,9 @@ function App() {
           </Route>
           <Route exact path="/counter">
             <Counter />
+          </Route>
+          <Route exact path="/effect-form">
+            <EffectForm />
           </Route>
         </Switch>
       </div>

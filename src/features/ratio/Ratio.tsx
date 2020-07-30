@@ -3,24 +3,20 @@ import { useSelector, useDispatch } from 'react-redux';
 import {
   requestAsync,
   selectRatio,
-  // selectList,
-  // selectError,
-  // selectStatus,
 } from './ratioSlice';
 import RatioTable from '../../components/ratio/RatioTable';
 import PieChart from '../../components/ratio/PieChart';
 
 function Ratio() {
   const { list, error, status } = useSelector(selectRatio);
-  // const list = useSelector(selectList);
-  // const error = useSelector(selectError);
-  // const status = useSelector(selectStatus);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(requestAsync());
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const renderPieChart = (list.length) ? <PieChart list={list}/> : null;
 
   return (
     <div className="container">
@@ -32,18 +28,16 @@ function Ratio() {
           />
         </div>
         <div className="col">
-          <PieChart
-            list={list}
-          />
+          {renderPieChart}
         </div>
       </div>
-      <div>
+      {/* <div>
         <h6>{status} {error?.message}</h6>
         <button
           className="btn btn-primary"
           onClick={() => dispatch(requestAsync())}
         >Request</button>
-      </div>
+      </div> */}
     </div>
   );
 }

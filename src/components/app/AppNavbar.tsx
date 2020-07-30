@@ -19,6 +19,9 @@ function AppNavbar() {
           <li className="nav-item">
             <Link className="nav-link" to="/counter">Counter</Link>
           </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/effect-form">Effect</Link>
+          </li>
         </ul>
       </div>
     </nav>

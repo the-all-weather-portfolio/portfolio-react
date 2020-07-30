@@ -7,13 +7,18 @@ interface Props {
 
 function PieChart(props: Props) {
   useEffect(() => {
-    new Chartist.Pie('.ct-chart', {
-      labels: props.list.map(item => item.stock),
-      series: props.list,
-    }, {
-      labelInterpolationFnc: (value: any[]) => value
-    });
-  }, [props.list]);
+    function darwChart() {
+      new Chartist.Pie('.ct-chart', {
+        labels: props.list.map(item => item.stock),
+        series: props.list,
+      }, {
+        labelInterpolationFnc: (value: any[]) => value
+      });
+    }
+
+    darwChart();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className="ct-chart ct-perfect-fourth"></div>
